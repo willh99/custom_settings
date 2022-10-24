@@ -4,6 +4,8 @@ SAVEHIST=1000
 setopt beep
 unsetopt autocd notify
 
+zstyle ':completion:*:*:make:*' tag-order 'targets'
+
 autoload -Uz compinit && compinit
 setopt prompt_subst
 autoload -Uz vcs_info
@@ -16,3 +18,5 @@ source <(kubectl completion zsh)
 
 export PATH="$HOME/go/bin:$PATH"
 export PROMPT='%(?.✅.❌%?)%F{cyan}${vcs_info_msg_0_}%f %F{blue}%T %F{red}%n %F{yellow}%1d%f %\> '
+
+GPG_TTY=$(tty)
